@@ -37,3 +37,44 @@ When("I navigate through the website", function(){
 Then("the buttons and icons should be {}", function(expectedAnswer){
   assert.strictEqual(this.actualAnswer, expectedAnswer);
 });
+
+
+// Feature 3
+Given("I am a leader", function(){
+    this.userType = "leader";
+  }
+);
+
+When("I want to play another song", function(){
+  if(this.userType == "leader"){
+    this.actualAnswer = "upload";
+  }else{
+    this.actualAnswer = "play";
+  }
+})
+
+Then("I can {} another song without rejoining the session", function(expectedAnswer){
+  assert.strictEqual(this.actualAnswer, expectedAnswer);
+});
+
+
+// Feature 4
+Given("Im a {}", function(expectedAnswer){
+  if(expectedAnswer == "follower"){
+    this.userType = "follower";
+  }else{
+    this.userType = "leader";
+  }
+});
+
+When("I want to leave a session", function(){
+  if(this.userType == "follower"){
+    this.actualAnswer = "leave";
+  }else{
+    this.actualAnswer = "end";
+  }
+});
+
+Then("I can press a button and {} the session", function(expectedAnswer){
+  assert.strictEqual(this.actualAnswer, expectedAnswer);
+});

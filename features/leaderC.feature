@@ -3,9 +3,9 @@ Feature: As a leader, I would like to be able to upload multiple songs in a sess
     Scenario: I am a leader
         Given I am the leader
         When I want to play another song
-        Then I can upload another song without recreating the session
+        Then I can upload another song without rejoining the session
 
     Scenario: I am a follower
         Given I am a follower
-        When I want to keep playing along to another song
-        Then I don't need to rejoin the session
+        When I want to play another song
+        Then I can play another song without rejoining the session
