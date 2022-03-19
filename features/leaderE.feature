@@ -3,7 +3,7 @@ Feature: As a user, I would like to have a dark mode option, so that the website
     Scenario: It is late at night
         Given it is dark outside
         When I want to use the app
-        Then I can change the app to dark mode so that I don't strain my eyes
+        Then I can change the app to dark mode
 
     Scenario: It isn't late at night
         Given it is light outside

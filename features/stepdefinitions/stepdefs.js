@@ -40,8 +40,12 @@ Then("the buttons and icons should be {}", function(expectedAnswer){
 
 
 // Feature 3
-Given("I am a leader", function(){
-    this.userType = "leader";
+Given("I am a {string}", function(expectedAnswer){
+    if(expectedAnswer == "leader"){
+      this.userType = "leader";
+    }else{
+      this.userType = "follower";
+    }
   }
 );
 
@@ -76,5 +80,27 @@ When("I want to leave a session", function(){
 });
 
 Then("I can press a button and {} the session", function(expectedAnswer){
+  assert.strictEqual(this.actualAnswer, expectedAnswer);
+});
+
+
+// Feature 5
+Given("it is {} outside", function(expectedAnswer){
+  if(expectedAnswer == "dark"){
+    this.time = expectedAnswer;
+  }else{
+    this.time = expectedAnswer;
+  }
+});
+
+When("I want to use the app", function(){
+  if(this.time == "dark"){
+    this.actualAnswer = "dark";
+  }else{
+    this.actualAnswer = "light";
+  }
+});
+
+Then("I can change the app to {} mode", function(expectedAnswer){
   assert.strictEqual(this.actualAnswer, expectedAnswer);
 });
